@@ -75,6 +75,7 @@ class Action<T> implements Function {
   /// supplied at dispatch time, otherwise null will be passed. Returns an
   /// [ActionSubscription] which provides means to cancel the subscription.
   ActionSubscription listen(OnData<T> onData) {
+    print("add listener");
     _listeners.add(onData);
     return new ActionSubscription(() => _listeners.remove(onData));
   }
